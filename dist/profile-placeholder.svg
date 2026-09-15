@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100" fill="none">
+  <rect width="900" height="1100" rx="32" fill="#111A21"/>
+  <circle cx="450" cy="362" r="146" fill="#29404B"/>
+  <path d="M157 928C175 711 293 597 450 597C607 597 725 711 743 928H157Z" fill="#29404B"/>
+  <circle cx="450" cy="362" r="184" stroke="#33D6FF" stroke-opacity=".55" stroke-width="2"/>
+  <path d="M256 928H644" stroke="#33D6FF" stroke-opacity=".35" stroke-width="2"/>
+  <text x="450" y="1000" fill="#D5E6EA" font-family="monospace" font-size="26" letter-spacing="3" text-anchor="middle">PROFILE PHOTO NEEDED</text>
+</svg>

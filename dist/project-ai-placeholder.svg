@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1400" viewBox="0 0 1200 1400" fill="none">
+  <rect width="1200" height="1400" rx="32" fill="#111A21"/>
+  <circle cx="600" cy="542" r="295" stroke="#33D6FF" stroke-opacity=".45" stroke-width="3"/>
+  <circle cx="600" cy="542" r="184" fill="#1C323D"/>
+  <circle cx="600" cy="542" r="72" fill="#33D6FF" fill-opacity=".72"/>
+  <path d="M171 1018H1029" stroke="#A7C1C9" stroke-opacity=".25" stroke-width="3"/>
+  <text x="170" y="1110" fill="#D5E6EA" font-family="monospace" font-size="33" letter-spacing="3">AI PROJECT VISUAL</text>
+  <text x="170" y="1163" fill="#91AAB2" font-family="monospace" font-size="20" letter-spacing="2">REPLACE WITH MODEL OUTPUT</text>
+</svg>
