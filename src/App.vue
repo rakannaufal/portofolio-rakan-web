@@ -1,34 +1,24 @@
 <script setup lang="ts">
-import { computed, defineAsyncComponent, onMounted, ref, watch } from "vue";
-import HeroSceneFallback from "./components/HeroSceneFallback.vue";
-import HeroSceneLoading from "./components/HeroSceneLoading.vue";
+import { computed, onMounted, ref, watch } from "vue";
+import GithubContributions from "./components/GithubContributions.vue";
 import Reveal from "./components/Reveal.vue";
 import { useReducedMotion } from "./composables/useReducedMotion";
 
 type Language = "en" | "id";
 type Theme = "dark" | "light";
 
-const HeroScene = defineAsyncComponent({
-  loader: () => import("./components/HeroScene.vue"),
-  loadingComponent: HeroSceneLoading,
-  errorComponent: HeroSceneFallback,
-  delay: 180,
-  timeout: 12000,
-});
-
 const copy = {
   en: {
     meta: {
-      title: "M Rakan Naufal | Full-Stack Developer & AI/IoT Builder",
+      title: "M Rakan Naufal | Fullstack Developer, AI Engineer & Prompt Engineer",
       description:
-        "Portfolio of M Rakan Naufal, Full-Stack Developer and AI/IoT Builder.",
+        "Portfolio of M Rakan Naufal, Fullstack Developer, AI Engineer, and Prompt Engineer.",
     },
     nav: {
       about: "About",
-      capabilities: "Capabilities",
+      contributions: "Contributions",
       stack: "Stack",
       projects: "Projects",
-      process: "Process",
       contact: "Contact",
       menu: "Menu",
       close: "Close menu",
@@ -42,57 +32,46 @@ const copy = {
       dark: "Dark",
     },
     hero: {
-      headline: ["Building the web,", "intelligence, and connected things."],
+      headline: ["Building fullstack products,", "intelligent systems, and better prompts."],
       summary:
-        "I build digital products through web systems, applied AI, and connected devices that make physical ideas useful.",
+        "I combine fullstack engineering, AI systems, and prompt engineering to turn complex problems into useful digital products.",
       projects: "View Projects",
       contact: "Contact Me",
     },
     about: {
       rail: "About",
-      title: "Software and devices, considered together.",
-      lead: "I build modern web experiences, AI solutions, and connected IoT devices.",
-      body: "My focus sits across Web Development, Artificial Intelligence, and Internet of Things. I turn complex needs into products that people can use, from interface to data to physical devices in the field.",
+      title: "Fullstack systems and intelligent products, built with intent.",
+      lead: "I am a dedicated Fullstack Developer, AI Engineer, and Prompt Engineer focused on building modern digital products and integrating advanced artificial intelligence. I specialize in aligning creative design, complex system logic, and generative AI technologies to solve real-world problems and deliver high-impact user experiences.",
+      body: "As a Technical Leader, I have a proven track record of guiding and managing cross-functional teams from project inception to deployment. I excel at aligning team dynamics, fostering effective collaboration, and making strategic technical decisions that empower large teams to execute with clarity and purpose.\n\nDriven by a commitment to continuous innovation, I bring strong strategic leadership and technical expertise to forward-thinking organizations. My goal is to architect scalable, well-structured solutions that drive business value and deliver meaningful, lasting impact.",
       focus: "Focus",
       focusValue:
-        "Web Development, Artificial Intelligence, Internet of Things",
+        "Fullstack Development, Prompt Engineering, AI Engineering",
       working: "How I work",
       workingValue:
-        "Connecting user experience, reliable software, and real-world device behavior.",
+        "Connecting product thinking, reliable software, and practical AI behavior.",
       location: "Location",
       cv: "Download CV",
       cvPending: "Download CV pending",
       profileAlt: "M Rakan Naufal",
     },
-    capabilities: {
-      title: "Three systems. One product mindset.",
-      body: "From browser interface to trained model to connected sensor, each layer has a job in the final experience.",
-      cards: [
-        {
-          label: "Web Development",
-          title: "Interfaces that make complex systems feel direct.",
-          body: "Build responsive product surfaces, APIs, and foundations that teams can extend with confidence.",
-        },
-        {
-          label: "Artificial Intelligence",
-          title: "Models grounded in a practical product question.",
-          body: "Prototype useful intelligence, connect it to a real flow, and make the result understandable for people.",
-        },
-        {
-          label: "Internet of Things",
-          title: "Physical signals carried into useful software.",
-          body: "Bring sensors, microcontrollers, messaging, and product software into one observable system.",
-        },
-      ],
+    contributions: {
+      eyebrow: "GitHub activity",
+      title: "Work that keeps moving.",
+      body: "A live view of my public coding activity over the last year.",
+      less: "Less",
+      more: "More",
+      loading: "Loading contributions",
+      error: "Contributions are unavailable right now.",
+      viewProfile: "View GitHub profile",
     },
     stack: {
       eyebrow: "Tech Stack",
       title: "Tools with a reason to be here.",
       groups: [
         {
-          id: "web",
-          title: "Web",
-          description: "Interfaces, systems, and dependable product delivery.",
+          id: "fullstack",
+          title: "Fullstack Development",
+          description: "Interfaces, APIs, and dependable product delivery.",
           technologies: [
             {
               name: "JavaScript",
@@ -105,11 +84,6 @@ const copy = {
               use: "Reliable application contracts",
             },
             { name: "Vue.js", slug: "vuedotjs", use: "Reactive interfaces" },
-            {
-              name: "Nuxt",
-              slug: "nuxtdotjs",
-              use: "Production-ready web applications",
-            },
             { name: "Node.js", slug: "nodedotjs", use: "Server-side services" },
             {
               name: "Tailwind CSS",
@@ -133,21 +107,13 @@ const copy = {
           ],
         },
         {
-          id: "iot",
-          title: "IoT",
-          description: "Sensors, devices, and messaging connected to software.",
+          id: "prompt",
+          title: "Prompt Engineering",
+          description: "Clear instructions, evaluations, and useful AI workflows.",
           technologies: [
-            {
-              name: "Arduino",
-              slug: "arduino",
-              use: "Rapid hardware prototyping",
-            },
-            {
-              name: "ESP32",
-              slug: "espressif",
-              use: "Connected embedded devices",
-            },
-            { name: "MQTT", slug: "mqtt", use: "Lightweight device messaging" },
+            { name: "Gemini", slug: "googlegemini", use: "Prompt workflows" },
+            { name: "Claude", slug: "claude", use: "Prompt workflows" },
+            { name: "OpenAI", slug: "chatgpt", use: "Prompt workflows" },
           ],
         },
         {
@@ -157,21 +123,23 @@ const copy = {
             "Practical tools for focused collaboration and release work.",
           technologies: [
             { name: "Git", slug: "git", use: "Versioned collaboration" },
-          ],
-        },
-        {
-          id: "design",
-          title: "Design",
-          description: "Product thinking made tangible before implementation.",
-          technologies: [
-            { name: "Figma", slug: "figma", use: "Interface exploration" },
+            {
+              name: "Hermes Agent",
+              slug: "",
+              use: "Open-source agent workflows",
+            },
+            {
+              name: "9Router",
+              slug: "",
+              use: "Model routing and API access",
+            },
           ],
         },
       ],
     },
     projects: {
       title: "Projects built end to end.",
-      body: "Marketplaces, connected devices, and an applied NLP pipeline — each shipped from interface to data to hardware.",
+      body: "Marketplaces, intelligent document pipelines, and practical digital products, shipped from interface to data to deployment.",
       labels: {
         problem: "Problem",
         solution: "Solution",
@@ -190,11 +158,11 @@ const copy = {
           stack: ["Vue 3", "Vite", "Pinia", "Supabase", "Midtrans"],
           contribution:
             "Built the frontend architecture: multi-role routing, Pinia stores, Supabase integration, and the payment and analytics dashboards.",
-          image: "/project/mariles.jpg",
+          image: "/project/mariles-home.png",
           imageAlt: "Mariles online tutoring marketplace interface",
           featured: true,
-          demo: "https://mariles.vercel.app",
-          source: "https://github.com/rakannaufal/mariles",
+          demo: "",
+          source: "",
         },
         {
           title: "Jemuran Otomatis — Smart Clothesline",
@@ -209,8 +177,8 @@ const copy = {
           image: "/project/iot.png",
           imageAlt: "Jemuran Otomatis smart clothesline dashboard",
           featured: false,
-          demo: "https://jemuran-iot.vercel.app",
-          source: "https://github.com/rakannaufal/Jemuran-otomatis",
+          demo: "",
+          source: "",
         },
         {
           title: "Khay Brownies — Brand & Catalog Site",
@@ -242,41 +210,34 @@ const copy = {
           imageAlt: "Indonesian invitation document extraction dashboard",
           featured: true,
           demo: "",
-          source:
-            "https://github.com/rakannaufal/indobert-ocr-official-invitation-extraction",
-        },
-      ],
-    },
-    process: {
-      title: "A working process built for decisions.",
-      body: "The flow stays structured without losing room for discovery.",
-      items: [
-        {
-          title: "Discover",
-          detail:
-            "Clarify the people, physical constraints, and useful outcome before choosing the stack.",
+          source: "",
         },
         {
-          title: "Design",
-          detail:
-            "Map the product experience and technical shape while decisions are still inexpensive.",
-        },
-        {
-          title: "Build",
-          detail:
-            "Turn the system into responsive software, connected hardware, or both.",
-        },
-        {
-          title: "Ship",
-          detail:
-            "Test the critical paths, document handoff, and make the next iteration clear.",
+          title: "Marimabar — Gaming Companion Finder",
+          domain: "Web Development",
+          slug: "mari-mabar",
+          year: "2026",
+          status: "In Development",
+          problem:
+            "Gamers struggle to find compatible teammates by rank, role, and schedule, while public game IDs invite spam and harassment.",
+          solution:
+            "A multi-role platform with structured game profiles, server-side discovery filters, transactional invitations, private 1:1 chat, and full privacy controls for MLBB, PUBG Mobile, Free Fire, and Valorant.",
+          stack: ["Vue 3", "TypeScript", "Vite", "Pinia", "Supabase", "PostgreSQL"],
+          contribution:
+            "Built the frontend and backend architecture with Vue Router, Pinia, Supabase Auth, PostgreSQL RLS, Realtime, Storage, Edge Functions, transactional invitations, and safety features for blocking, reports, and moderation.",
+          image: "/project/marimabar.png",
+          imageAlt: "Marimabar gaming companion finder platform",
+          featured: false,
+          demo: "",
+          source: "https://github.com/rakannaufal/marimabar",
+          sourceVisible: false,
         },
       ],
     },
     contact: {
       eyebrow: "Contact",
       title: "Bring the hard problem.",
-      body: "Whether it lives in a browser, a model, or a device, a good conversation is where the useful work starts.",
+      body: "Whether it starts in a product flow or an AI workflow, a good conversation is where the useful work starts.",
       action: "Start a Conversation",
       email: "Email",
       github: "GitHub",
@@ -287,16 +248,15 @@ const copy = {
   },
   id: {
     meta: {
-      title: "M Rakan Naufal | Full-Stack Developer & AI/IoT Builder",
+      title: "M Rakan Naufal | Fullstack Developer, AI Engineer & Prompt Engineer",
       description:
-        "Portofolio M Rakan Naufal, Full-Stack Developer dan AI/IoT Builder.",
+        "Portofolio M Rakan Naufal, Fullstack Developer, AI Engineer, dan Prompt Engineer.",
     },
     nav: {
       about: "Tentang",
-      capabilities: "Keahlian",
+      contributions: "Kontribusi",
       stack: "Teknologi",
       projects: "Proyek",
-      process: "Proses",
       contact: "Kontak",
       menu: "Menu",
       close: "Tutup menu",
@@ -310,57 +270,46 @@ const copy = {
       dark: "Gelap",
     },
     hero: {
-      headline: ["Membangun web,", "kecerdasan, dan perangkat terhubung."],
+      headline: ["Membangun produk fullstack,", "sistem AI, dan prompt yang lebih baik."],
       summary:
-        "Saya membangun produk digital melalui sistem web, AI terapan, dan perangkat terhubung yang membuat ide fisik menjadi berguna.",
+        "Saya menggabungkan engineering fullstack, sistem AI, dan prompt engineering untuk mengubah masalah kompleks menjadi produk digital yang berguna.",
       projects: "Lihat Proyek",
       contact: "Hubungi Saya",
     },
     about: {
       rail: "Tentang",
-      title: "Perangkat lunak dan perangkat fisik, dirancang bersama.",
-      lead: "Saya membangun pengalaman web modern, solusi AI, dan perangkat IoT yang terhubung.",
-      body: "Fokus saya ada pada Web Development, Artificial Intelligence, dan Internet of Things. Saya menerjemahkan kebutuhan rumit menjadi produk yang mudah dipakai, dari antarmuka sampai data dan perangkat fisik di lapangan.",
+      title: "Sistem fullstack dan produk cerdas, dibangun dengan tujuan.",
+      lead: "Saya adalah Fullstack Developer, AI Engineer, dan Prompt Engineer yang berfokus membangun produk digital modern serta mengintegrasikan kecerdasan buatan tingkat lanjut. Saya menyelaraskan desain kreatif, logika sistem yang kompleks, dan teknologi AI generatif untuk menyelesaikan masalah nyata serta menghadirkan pengalaman pengguna berdampak tinggi.",
+      body: "Sebagai Technical Leader, saya berpengalaman memandu dan mengelola tim lintas fungsi sejak awal proyek hingga deployment. Saya menyelaraskan dinamika tim, membangun kolaborasi yang efektif, dan mengambil keputusan teknis strategis agar tim besar dapat bekerja dengan jelas dan terarah.\n\nDengan komitmen pada inovasi berkelanjutan, saya membawa kepemimpinan strategis dan keahlian teknis untuk organisasi yang berpikiran maju. Tujuan saya adalah merancang solusi yang scalable dan terstruktur untuk mendorong nilai bisnis serta dampak yang bermakna dan berkelanjutan.",
       focus: "Fokus",
       focusValue:
-        "Web Development, Artificial Intelligence, Internet of Things",
+        "Fullstack Development, Prompt Engineering, AI Engineering",
       working: "Cara kerja",
       workingValue:
-        "Menghubungkan pengalaman pengguna, perangkat lunak andal, dan perilaku perangkat di dunia nyata.",
+        "Menghubungkan pemikiran produk, perangkat lunak yang andal, dan perilaku AI yang praktis.",
       location: "Lokasi",
       cv: "Unduh CV",
       cvPending: "Unduh CV belum tersedia",
       profileAlt: "M Rakan Naufal",
     },
-    capabilities: {
-      title: "Keahlian yang bekerja di antara layar dan dunia nyata.",
-      body: "Saya merancang alur dari sinyal pertama sampai pengalaman yang bisa dipakai: antarmuka, keputusan berbasis data, lalu perangkat yang benar-benar bergerak.",
-      cards: [
-        {
-          label: "Web Development",
-          title: "Membuat kerumitan terasa sederhana di layar.",
-          body: "Menyusun antarmuka, API, dan fondasi frontend yang cepat dipahami pengguna dan tetap enak dikembangkan tim.",
-        },
-        {
-          label: "Artificial Intelligence",
-          title: "Membuat model menjawab masalah, bukan sekadar demo.",
-          body: "Mengubah data dan model menjadi alur kerja yang terukur, bisa dijelaskan, dan punya tempat yang jelas di produk.",
-        },
-        {
-          label: "Internet of Things",
-          title: "Membawa sinyal fisik masuk ke keputusan digital.",
-          body: "Menghubungkan sensor, mikrokontroler, messaging, dan dashboard menjadi sistem yang bisa dipantau dari ujung ke ujung.",
-        },
-      ],
+    contributions: {
+      eyebrow: "Aktivitas GitHub",
+      title: "Karya yang terus bergerak.",
+      body: "Ringkasan live aktivitas coding publik saya selama satu tahun terakhir.",
+      less: "Sedikit",
+      more: "Banyak",
+      loading: "Memuat kontribusi",
+      error: "Kontribusi belum tersedia saat ini.",
+      viewProfile: "Lihat profil GitHub",
     },
     stack: {
       eyebrow: "Tech Stack",
       title: "Teknologi dengan tujuan yang jelas.",
       groups: [
         {
-          id: "web",
-          title: "Web",
-          description: "Antarmuka, sistem, dan pengiriman produk yang andal.",
+          id: "fullstack",
+          title: "Fullstack Development",
+          description: "Antarmuka, API, dan pengiriman produk yang andal.",
           technologies: [
             {
               name: "JavaScript",
@@ -373,11 +322,6 @@ const copy = {
               use: "Kontrak aplikasi yang andal",
             },
             { name: "Vue.js", slug: "vuedotjs", use: "Antarmuka reaktif" },
-            {
-              name: "Nuxt",
-              slug: "nuxtdotjs",
-              use: "Aplikasi web siap produksi",
-            },
             { name: "Node.js", slug: "nodedotjs", use: "Layanan sisi server" },
             {
               name: "Tailwind CSS",
@@ -401,22 +345,14 @@ const copy = {
           ],
         },
         {
-          id: "iot",
-          title: "IoT",
+          id: "prompt",
+          title: "Prompt Engineering",
           description:
-            "Sensor, perangkat, dan messaging yang terhubung ke perangkat lunak.",
+            "Instruksi, evaluasi, dan alur kerja AI yang berguna.",
           technologies: [
-            {
-              name: "Arduino",
-              slug: "arduino",
-              use: "Prototipe hardware cepat",
-            },
-            {
-              name: "ESP32",
-              slug: "espressif",
-              use: "Perangkat embedded terhubung",
-            },
-            { name: "MQTT", slug: "mqtt", use: "Messaging perangkat ringan" },
+            { name: "Gemini", slug: "googlegemini", use: "Alur kerja prompt" },
+            { name: "Claude", slug: "claude", use: "Alur kerja prompt" },
+            { name: "OpenAI", slug: "chatgpt", use: "Alur kerja prompt" },
           ],
         },
         {
@@ -426,22 +362,23 @@ const copy = {
             "Tools praktis untuk kolaborasi dan proses rilis yang fokus.",
           technologies: [
             { name: "Git", slug: "git", use: "Kolaborasi berversi" },
-          ],
-        },
-        {
-          id: "design",
-          title: "Design",
-          description:
-            "Pemikiran produk yang dibuat nyata sebelum implementasi.",
-          technologies: [
-            { name: "Figma", slug: "figma", use: "Eksplorasi antarmuka" },
+            {
+              name: "Hermes Agent",
+              slug: "",
+              use: "Alur kerja agent open-source",
+            },
+            {
+              name: "9Router",
+              slug: "",
+              use: "Routing model dan akses API",
+            },
           ],
         },
       ],
     },
     projects: {
       title: "Proyek yang dibangun dari hulu ke hilir.",
-      body: "Marketplace, perangkat terhubung, dan pipeline NLP terapan — masing-masing dijalankan dari antarmuka sampai data dan perangkat.",
+      body: "Marketplace, pipeline dokumen cerdas, dan produk digital praktis yang dibangun dari antarmuka sampai data dan deployment.",
       labels: {
         problem: "Masalah",
         solution: "Solusi",
@@ -460,11 +397,11 @@ const copy = {
           stack: ["Vue 3", "Vite", "Pinia", "Supabase", "Midtrans"],
           contribution:
             "Membangun arsitektur frontend: routing multi-peran, store Pinia, integrasi Supabase, serta dashboard pembayaran dan analitik.",
-          image: "/project/mariles.jpg",
+          image: "/project/mariles-home.png",
           imageAlt: "Antarmuka marketplace les online Mariles",
           featured: true,
-          demo: "https://mariles.vercel.app",
-          source: "https://github.com/rakannaufal/mariles",
+          demo: "",
+          source: "",
         },
         {
           title: "Jemuran Otomatis — Jemuran Pintar",
@@ -479,8 +416,8 @@ const copy = {
           image: "/project/iot.png",
           imageAlt: "Dashboard jemuran otomatis berbasis ESP32",
           featured: false,
-          demo: "https://jemuran-iot.vercel.app",
-          source: "https://github.com/rakannaufal/Jemuran-otomatis",
+          demo: "",
+          source: "",
         },
         {
           title: "Khay Brownies — Situs Brand & Katalog",
@@ -512,41 +449,34 @@ const copy = {
           imageAlt: "Dashboard ekstraksi dokumen surat undangan Indonesia",
           featured: true,
           demo: "",
-          source:
-            "https://github.com/rakannaufal/indobert-ocr-official-invitation-extraction",
-        },
-      ],
-    },
-    process: {
-      title: "Proses kerja untuk pengambilan keputusan.",
-      body: "Alur tetap terstruktur tanpa kehilangan ruang untuk menemukan hal baru.",
-      items: [
-        {
-          title: "Temukan",
-          detail:
-            "Memahami manusia, batasan fisik, dan hasil berguna sebelum memilih teknologi.",
+          source: "",
         },
         {
-          title: "Rancang",
-          detail:
-            "Memetakan pengalaman produk dan bentuk teknis saat keputusan masih mudah diubah.",
-        },
-        {
-          title: "Bangun",
-          detail:
-            "Membuat sistem menjadi perangkat lunak responsif, hardware terhubung, atau keduanya.",
-        },
-        {
-          title: "Rilis",
-          detail:
-            "Menguji alur penting, mendokumentasikan serah terima, dan memperjelas iterasi berikutnya.",
+          title: "Marimabar — Platform Pencarian Teman Bermain",
+          domain: "Web Development",
+          slug: "mari-mabar",
+          year: "2026",
+          status: "Dalam Pengembangan",
+          problem:
+            "Pemain game sulit menemukan rekan mabar yang cocok berdasarkan rank, role, dan jadwal. Berbagi ID game secara publik juga berisiko spam dan pelecehan.",
+          solution:
+            "Platform multi-peran dengan profil per game yang terstruktur, filter pencarian berbasis server, sistem ajakan transaksional, chat 1:1 privat, dan kontrol privasi untuk MLBB, PUBG Mobile, Free Fire, serta Valorant.",
+          stack: ["Vue 3", "TypeScript", "Vite", "Pinia", "Supabase", "PostgreSQL"],
+          contribution:
+            "Membangun arsitektur frontend dan backend dengan Vue Router, Pinia, Supabase Auth, PostgreSQL RLS, Realtime, Storage, Edge Functions, sistem ajakan, blokir, laporan, dan moderasi.",
+          image: "/project/marimabar.png",
+          imageAlt: "Platform pencarian teman bermain Marimabar",
+          featured: false,
+          demo: "",
+          source: "https://github.com/rakannaufal/marimabar",
+          sourceVisible: false,
         },
       ],
     },
     contact: {
       eyebrow: "Kontak",
       title: "Bawa masalah yang sulit.",
-      body: "Baik di browser, model, atau perangkat, percakapan yang baik adalah awal dari karya yang berguna.",
+      body: "Baik dimulai dari alur produk atau workflow AI, percakapan yang baik adalah awal dari karya yang berguna.",
       action: "Mulai Percakapan",
       email: "Email",
       github: "GitHub",
@@ -558,13 +488,13 @@ const copy = {
 } as const;
 
 const { prefersReducedMotion } = useReducedMotion();
-const theme = ref<Theme>("dark");
+const theme = ref<Theme>("light");
 const language = ref<Language>("en");
 const t = computed(() => copy[language.value]);
 const isMobileMenuOpen = ref(false);
 
-const profileImageHero = "/profile-hero.png";
-const profileImageAbout = "/profile-rakan.jpg";
+const profileImageHero = "/profile.png";
+const profileImageAbout = "/profile.png";
 
 const contact = {
   location: "Pekanbaru, Indonesia",
@@ -598,9 +528,16 @@ function isPlaceholder(value: string) {
   return value.startsWith("[") && value.endsWith("]");
 }
 
+function isProjectSourceVisible(project: {
+  source: string;
+  sourceVisible?: boolean;
+}) {
+  return Boolean(project.source) && project.sourceVisible !== false;
+}
+
 function applyTheme(nextTheme: Theme) {
   document.documentElement.dataset.theme = nextTheme;
-  const themeColor = nextTheme === "dark" ? "#101418" : "#e7eff2";
+  const themeColor = nextTheme === "dark" ? "#111111" : "#ffffff";
   document
     .querySelector('meta[name="theme-color"]')
     ?.setAttribute("content", themeColor);
@@ -663,24 +600,25 @@ watch(language, (nextLanguage) => {
 
 <template>
   <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <!-- Site Header with Navigation -->
   <header class="site-header">
     <nav class="site-nav" aria-label="Main navigation">
       <!-- Logo / Name -->
-      <a href="#top" class="name-lockup" @click="closeMobileMenu">
+      <a href="#top" class="name-lockup" aria-label="M Rakan Naufal" @click="closeMobileMenu">
+        <img src="/logo.svg?v=2" alt="" width="34" height="34" />
         <span>M Rakan Naufal</span>
       </a>
 
       <!-- Desktop Navigation Links -->
       <div class="nav-links" :class="{ 'is-open': isMobileMenuOpen }">
         <a href="#about" @click="closeMobileMenu">{{ t.nav.about }}</a>
-        <a href="#capabilities" @click="closeMobileMenu">{{
-          t.nav.capabilities
+        <a href="#contributions" @click="closeMobileMenu">{{
+          t.nav.contributions
         }}</a>
         <a href="#stack" @click="closeMobileMenu">{{ t.nav.stack }}</a>
         <a href="#projects" @click="closeMobileMenu">{{ t.nav.projects }}</a>
-        <a href="#process" @click="closeMobileMenu">{{ t.nav.process }}</a>
         <a href="#contact" @click="closeMobileMenu">{{ t.nav.contact }}</a>
 
         <!-- Close Button (Mobile Only) -->
@@ -804,39 +742,23 @@ watch(language, (nextLanguage) => {
         class="hero min-h-[100dvh]"
         aria-labelledby="hero-title"
       >
-        <!-- Full-Width 3D Background Layer with Particle Dots -->
-        <div class="hero-scene-layer">
-          <Reveal
-            class="hero-scene-container"
-            :delay="0"
-            :reduced="prefersReducedMotion"
-          >
-            <HeroScene :profile-image="profileImageHero" :language="language" />
-          </Reveal>
-        </div>
+        <p class="hero-wordmark" aria-hidden="true">
+          <span>M RAKAN </span><span class="hero-wordmark-solid">NAUFAL</span>
+        </p>
 
         <!-- Split Screen: Text Left, Photo Right -->
         <div class="hero-split-layout">
           <!-- Left: Text Content -->
           <Reveal class="hero-copy-left" :reduced="prefersReducedMotion">
-            <p class="eyebrow">M Rakan Naufal</p>
             <h1 id="hero-title">
               <span v-for="line in t.hero.headline" :key="line">{{
                 line
               }}</span>
             </h1>
             <p class="hero-summary">{{ t.hero.summary }}</p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#projects">{{
-                t.hero.projects
-              }}</a>
-              <a class="button button-secondary" href="#contact">{{
-                t.hero.contact
-              }}</a>
-            </div>
           </Reveal>
 
-          <!-- Right: Photo with 3D Icons Orbiting Above Hands -->
+          <!-- Right: Portrait -->
           <Reveal
             class="hero-photo-right"
             :delay="100"
@@ -852,330 +774,19 @@ watch(language, (nextLanguage) => {
                 fetchpriority="high"
                 decoding="async"
               />
-
-              <!-- Left Hand Icons (8 icons) -->
-              <div
-                class="hand-orbit-container hand-orbit-left"
-                v-if="!prefersReducedMotion"
-              >
-                <div class="hand-orbit-ring">
-                  <div class="hand-orbit-icon hand-icon-l1">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/vue.svg"
-                      alt="Vue.js"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/vue.svg"
-                      alt="Vue.js"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-l2">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/typescript.svg"
-                      alt="TypeScript"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/typescript.svg"
-                      alt="TypeScript"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-l3">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/nodejs.svg"
-                      alt="Node.js"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/nodejs.svg"
-                      alt="Node.js"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-l4">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/python.svg"
-                      alt="Python"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/python.svg"
-                      alt="Python"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-l5">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/tensorflow.svg"
-                      alt="TensorFlow"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/tensorflow.svg"
-                      alt="TensorFlow"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-l6">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/git.svg"
-                      alt="Git"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/git.svg"
-                      alt="Git"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-l7">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/figma.svg"
-                      alt="Figma"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/figma.svg"
-                      alt="Figma"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-l8">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/vue.svg"
-                      alt="Vue.js"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/vue.svg"
-                      alt="Vue.js"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <!-- Right Hand Icons (8 icons) -->
-              <div
-                class="hand-orbit-container hand-orbit-right"
-                v-if="!prefersReducedMotion"
-              >
-                <div class="hand-orbit-ring">
-                  <div class="hand-orbit-icon hand-icon-r1">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/arduino.svg"
-                      alt="Arduino"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/arduino.svg"
-                      alt="Arduino"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-r2">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/esp32.svg"
-                      alt="ESP32"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/esp32.svg"
-                      alt="ESP32"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-r3">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/mqtt.svg"
-                      alt="MQTT"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/mqtt.svg"
-                      alt="MQTT"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-r4">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/python.svg"
-                      alt="Python"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/python.svg"
-                      alt="Python"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-r5">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/nodejs.svg"
-                      alt="Node.js"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/nodejs.svg"
-                      alt="Node.js"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-r6">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/typescript.svg"
-                      alt="TypeScript"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/typescript.svg"
-                      alt="TypeScript"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-r7">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/git.svg"
-                      alt="Git"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/git.svg"
-                      alt="Git"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div class="hand-orbit-icon hand-icon-r8">
-                    <span class="icon-3d-layer icon-layer-1"></span>
-                    <span class="icon-3d-layer icon-layer-2"></span>
-                    <span class="icon-3d-layer icon-layer-3"></span>
-                    <img
-                      class="icon-face icon-front"
-                      src="/icons/figma.svg"
-                      alt="Figma"
-                      width="40"
-                      height="40"
-                    />
-                    <img
-                      class="icon-face icon-back"
-                      src="/icons/figma.svg"
-                      alt="Figma"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                </div>
-              </div>
             </div>
           </Reveal>
+
+          <div class="hero-side-actions">
+            <a href="#projects">
+              <span>{{ t.hero.projects }}</span>
+              <span aria-hidden="true">↘</span>
+            </a>
+            <a href="#contact">
+              <span>{{ t.hero.contact }}</span>
+              <span aria-hidden="true">↘</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -1237,132 +848,22 @@ watch(language, (nextLanguage) => {
         </Reveal>
       </section>
 
-      <section
-        id="capabilities"
-        class="capabilities-section section-shell"
-        aria-labelledby="capabilities-title"
-      >
+      <section id="contributions" class="contributions-section section-shell">
         <Reveal
-          class="section-heading capabilities-heading"
+          class="section-heading contributions-heading"
           :reduced="prefersReducedMotion"
         >
-          <h2 id="capabilities-title">{{ t.capabilities.title }}</h2>
-          <p>{{ t.capabilities.body }}</p>
+          <p class="eyebrow">{{ t.contributions.eyebrow }}</p>
+          <h2 id="contributions-title">{{ t.contributions.title }}</h2>
+          <p>{{ t.contributions.body }}</p>
         </Reveal>
 
-        <div class="capabilities-grid">
-          <Reveal
-            class="capability capability-web"
-            :delay="30"
-            :reduced="prefersReducedMotion"
-          >
-            <div class="capability-content">
-              <span class="capability-index">{{
-                t.capabilities.cards[0].label
-              }}</span>
-              <h3>{{ t.capabilities.cards[0].title }}</h3>
-              <p>{{ t.capabilities.cards[0].body }}</p>
-            </div>
-            <div class="capability-art capability-art-web">
-              <img
-                src="https://cdn.simpleicons.org/vuedotjs/33D6FF"
-                alt="Vue.js logo"
-                width="80"
-                height="80"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="https://cdn.simpleicons.org/typescript/33D6FF"
-                alt="TypeScript logo"
-                width="80"
-                height="80"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="https://cdn.simpleicons.org/nodedotjs/33D6FF"
-                alt="Node.js logo"
-                width="80"
-                height="80"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </Reveal>
-
-          <Reveal
-            class="capability capability-ai"
-            :delay="90"
-            :reduced="prefersReducedMotion"
-          >
-            <div class="capability-art capability-art-ai">
-              <img
-                src="https://cdn.simpleicons.org/python/33D6FF"
-                alt="Python logo"
-                width="80"
-                height="80"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="https://cdn.simpleicons.org/tensorflow/33D6FF"
-                alt="TensorFlow logo"
-                width="80"
-                height="80"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="capability-content">
-              <span class="capability-index">{{
-                t.capabilities.cards[1].label
-              }}</span>
-              <h3>{{ t.capabilities.cards[1].title }}</h3>
-              <p>{{ t.capabilities.cards[1].body }}</p>
-            </div>
-          </Reveal>
-
-          <Reveal
-            class="capability capability-iot"
-            :delay="150"
-            :reduced="prefersReducedMotion"
-          >
-            <div class="capability-content">
-              <span class="capability-index">{{
-                t.capabilities.cards[2].label
-              }}</span>
-              <h3>{{ t.capabilities.cards[2].title }}</h3>
-              <p>{{ t.capabilities.cards[2].body }}</p>
-            </div>
-            <div class="capability-art capability-art-iot">
-              <img
-                src="https://cdn.simpleicons.org/arduino/33D6FF"
-                alt="Arduino logo"
-                width="80"
-                height="80"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="https://cdn.simpleicons.org/espressif/33D6FF"
-                alt="Espressif logo"
-                width="80"
-                height="80"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="https://cdn.simpleicons.org/mqtt/33D6FF"
-                alt="MQTT logo"
-                width="80"
-                height="80"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </Reveal>
-        </div>
+        <Reveal :reduced="prefersReducedMotion">
+          <GithubContributions
+            username="rakannaufal"
+            :labels="t.contributions"
+          />
+        </Reveal>
       </section>
 
       <section
@@ -1396,13 +897,29 @@ watch(language, (nextLanguage) => {
                 class="technology-node"
               >
                 <img
-                  :src="`https://cdn.simpleicons.org/${technology.slug}/33D6FF`"
-                  :alt="`${technology.name}: ${technology.use}`"
+                  v-if="
+                    technology.name !== 'Hermes Agent' &&
+                    technology.name !== '9Router' &&
+                    technology.name !== 'OpenAI'
+                  "
+                  :src="`https://cdn.simpleicons.org/${technology.slug}/FFFFFF`"
+                  :alt="technology.name"
                   width="26"
                   height="26"
                   loading="lazy"
                   decoding="async"
                 />
+                <span
+                  v-else
+                  class="technology-monogram"
+                  aria-hidden="true"
+                >{{
+                  technology.name === "9Router"
+                    ? "9R"
+                    : technology.name === "OpenAI"
+                      ? "AI"
+                      : "HA"
+                }}</span>
                 <span>
                   <strong>{{ technology.name }}</strong>
                   <small>{{ technology.use }}</small>
@@ -1464,7 +981,10 @@ watch(language, (nextLanguage) => {
                 <ul class="project-stack" aria-label="Project stack">
                   <li v-for="item in project.stack" :key="item">{{ item }}</li>
                 </ul>
-                <div class="project-links">
+                <div
+                  v-if="project.demo || isProjectSourceVisible(project)"
+                  class="project-links"
+                >
                   <a
                     v-if="project.demo"
                     :href="project.demo"
@@ -1473,7 +993,7 @@ watch(language, (nextLanguage) => {
                     >{{ t.projects.labels.demo }}</a
                   >
                   <a
-                    v-if="project.source"
+                    v-if="isProjectSourceVisible(project)"
                     :href="project.source"
                     target="_blank"
                     rel="noreferrer"
@@ -1486,30 +1006,6 @@ watch(language, (nextLanguage) => {
         </div>
       </section>
 
-      <section
-        id="process"
-        class="process-section section-shell"
-        aria-labelledby="process-title"
-      >
-        <Reveal class="process-intro" :reduced="prefersReducedMotion">
-          <h2 id="process-title">{{ t.process.title }}</h2>
-          <p>{{ t.process.body }}</p>
-        </Reveal>
-
-        <ol class="process-track">
-          <Reveal
-            v-for="(item, index) in t.process.items"
-            :key="item.title"
-            :delay="index * 80"
-            :reduced="prefersReducedMotion"
-          >
-            <li>
-              <h3>{{ item.title }}</h3>
-              <p>{{ item.detail }}</p>
-            </li>
-          </Reveal>
-        </ol>
-      </section>
 
       <section
         v-if="experiences.length"
@@ -1547,7 +1043,7 @@ watch(language, (nextLanguage) => {
             <a
               v-if="!isPlaceholder(contact.email)"
               :href="`mailto:${contact.email}`"
-              >{{ contact.email }}</a
+              >Gmail</a
             >
             <p v-else>{{ contact.email }}</p>
           </div>
