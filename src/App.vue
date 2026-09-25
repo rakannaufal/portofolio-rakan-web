@@ -764,6 +764,9 @@ watch(language, (nextLanguage) => {
             :delay="100"
             :reduced="prefersReducedMotion"
           >
+            <p class="hero-wordmark hero-wordmark-mobile" aria-hidden="true">
+              <span>M RAKAN </span><span class="hero-wordmark-solid">NAUFAL</span>
+            </p>
             <div class="photo-frame">
               <img
                 class="hero-portrait"
@@ -780,11 +783,11 @@ watch(language, (nextLanguage) => {
           <div class="hero-side-actions">
             <a href="#projects">
               <span>{{ t.hero.projects }}</span>
-              <span aria-hidden="true">↘</span>
+              <span class="cta-arrow" aria-hidden="true">↘︎</span>
             </a>
             <a href="#contact">
               <span>{{ t.hero.contact }}</span>
-              <span aria-hidden="true">↘</span>
+              <span class="cta-arrow" aria-hidden="true">↘︎</span>
             </a>
           </div>
         </div>
