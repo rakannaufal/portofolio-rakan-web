@@ -149,6 +149,22 @@ const copy = {
       },
       items: [
         {
+          title: "SeblakKU — Custom Seblak Ordering",
+          domain: "Web Development",
+          problem:
+            "Custom seblak orders involve many choices, making it hard to preview the bowl and know the total before checkout.",
+          solution:
+            "A mobile-first ordering app with an interactive 3D bowl, live pricing, drinks, a multi-bowl cart, and pickup or dine-in checkout.",
+          stack: ["Vue 3", "TypeScript", "Three.js", "Pinia", "Supabase", "Midtrans"],
+          contribution:
+            "Built the bowl builder, cart, and checkout flow, plus Supabase authentication and order data and Midtrans payment functions.",
+          image: "/project/seblakku.png",
+          imageAlt: "SeblakKU custom seblak builder with a 3D bowl and topping options",
+          featured: false,
+          demo: "",
+          source: "https://github.com/rakannaufal/seblakku",
+        },
+        {
           title: "Mariles — Online Tutoring Marketplace",
           domain: "Web Development",
           problem:
@@ -387,6 +403,22 @@ const copy = {
         source: "Kode Sumber",
       },
       items: [
+        {
+          title: "SeblakKU — Racik Seblak Sesukamu",
+          domain: "Web Development",
+          problem:
+            "Pesanan seblak racikan memiliki banyak pilihan sehingga sulit membayangkan hasilnya dan mengetahui total harga sebelum checkout.",
+          solution:
+            "Aplikasi pemesanan mobile-first dengan mangkok 3D interaktif, harga langsung, minuman, keranjang multi-mangkok, serta checkout ambil sendiri atau makan di tempat.",
+          stack: ["Vue 3", "TypeScript", "Three.js", "Pinia", "Supabase", "Midtrans"],
+          contribution:
+            "Membangun peracik seblak, keranjang, dan alur checkout, serta autentikasi dan data pesanan Supabase dan fungsi pembayaran Midtrans.",
+          image: "/project/seblakku.png",
+          imageAlt: "Peracik SeblakKU dengan mangkok 3D dan pilihan topping",
+          featured: false,
+          demo: "",
+          source: "https://github.com/rakannaufal/seblakku",
+        },
         {
           title: "Mariles — Marketplace Les Online",
           domain: "Web Development",
