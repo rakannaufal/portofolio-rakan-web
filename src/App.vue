@@ -146,8 +146,29 @@ const copy = {
         contribution: "Contribution",
         demo: "Live Demo",
         source: "Source Code",
+        video: "iOS Walkthrough",
       },
       items: [
+        {
+          title: "Danarapi — Personal Finance, Web & iOS",
+          domain: "Fullstack & iOS Development",
+          problem:
+            "Tracking spending, budgets, and savings across separate tools makes personal finances difficult to manage.",
+          solution:
+            "A responsive web app and native iOS app for transactions, budgets, savings goals, reports, and receipt scanning with review before saving.",
+          stack: ["Vue 3", "TypeScript", "SwiftUI", "Supabase", "PostgreSQL", "Gemini"],
+          contribution:
+            "Built the web and native iOS interfaces, shared data contracts, Supabase ledger integration, and receipt review and split-bill flows.",
+          image: "/project/danarapi-web.jpg",
+          imageAlt: "Danarapi web dashboard showing balances, savings goals, and budgets",
+          mobileImage: "/project/danarapi-ios.jpg",
+          mobileImageAlt: "Danarapi native iOS dashboard with income, expenses, and savings goals",
+          featured: true,
+          demo: "https://danarapi.vercel.app/",
+          source: "https://github.com/rakannaufal/danarapi",
+          sourceVisible: false,
+          video: "https://www.youtube.com/shorts/6qQRip4nCNM",
+        },
         {
           title: "SeblakKU — Custom Seblak Ordering",
           domain: "Web Development",
@@ -401,8 +422,29 @@ const copy = {
         contribution: "Kontribusi",
         demo: "Demo Langsung",
         source: "Kode Sumber",
+        video: "Video Demo iOS",
       },
       items: [
+        {
+          title: "Danarapi — Keuangan Pribadi, Web & iOS",
+          domain: "Fullstack & iOS Development",
+          problem:
+            "Pencatatan pengeluaran, anggaran, dan tabungan di berbagai tempat membuat keuangan pribadi sulit dipantau.",
+          solution:
+            "Aplikasi web responsif dan iOS native untuk transaksi, anggaran, target tabungan, laporan, serta scan struk dengan tinjauan sebelum disimpan.",
+          stack: ["Vue 3", "TypeScript", "SwiftUI", "Supabase", "PostgreSQL", "Gemini"],
+          contribution:
+            "Membangun antarmuka web dan iOS native, kontrak data bersama, integrasi ledger Supabase, serta alur tinjauan struk dan split bill.",
+          image: "/project/danarapi-web.jpg",
+          imageAlt: "Dashboard web Danarapi dengan saldo, target tabungan, dan anggaran",
+          mobileImage: "/project/danarapi-ios.jpg",
+          mobileImageAlt: "Dashboard iOS native Danarapi dengan pemasukan, pengeluaran, dan target tabungan",
+          featured: true,
+          demo: "https://danarapi.vercel.app/",
+          source: "https://github.com/rakannaufal/danarapi",
+          sourceVisible: false,
+          video: "https://www.youtube.com/shorts/6qQRip4nCNM",
+        },
         {
           title: "SeblakKU — Racik Seblak Sesukamu",
           domain: "Web Development",
@@ -988,7 +1030,38 @@ watch(language, (nextLanguage) => {
             :reduced="prefersReducedMotion"
           >
             <article>
-              <div class="project-visual">
+              <div
+                v-if="'mobileImage' in project"
+                class="project-visual project-device-preview"
+              >
+                <div class="project-browser-frame">
+                  <div class="project-browser-toolbar" aria-hidden="true">
+                    <span class="project-browser-dots"><i></i><i></i><i></i></span>
+                    <span>danarapi.vercel.app</span>
+                    <span>Web</span>
+                  </div>
+                  <img
+                    :src="project.image"
+                    :alt="project.imageAlt"
+                    loading="lazy"
+                    decoding="async"
+                    width="1800"
+                    height="970"
+                  />
+                </div>
+                <div class="project-phone-frame">
+                  <img
+                    :src="project.mobileImage"
+                    :alt="project.mobileImageAlt"
+                    loading="lazy"
+                    decoding="async"
+                    width="581"
+                    height="1200"
+                  />
+                </div>
+                <span class="project-device-caption" aria-hidden="true">Web + iOS</span>
+              </div>
+              <div v-else class="project-visual">
                 <img
                   :src="project.image"
                   :alt="project.imageAlt"
@@ -1017,7 +1090,7 @@ watch(language, (nextLanguage) => {
                   <li v-for="item in project.stack" :key="item">{{ item }}</li>
                 </ul>
                 <div
-                  v-if="project.demo || isProjectSourceVisible(project)"
+                  v-if="project.demo || isProjectSourceVisible(project) || ('video' in project && project.video)"
                   class="project-links"
                 >
                   <a
@@ -1033,6 +1106,13 @@ watch(language, (nextLanguage) => {
                     target="_blank"
                     rel="noreferrer"
                     >{{ t.projects.labels.source }}</a
+                  >
+                  <a
+                    v-if="'video' in project && project.video"
+                    :href="project.video"
+                    target="_blank"
+                    rel="noreferrer"
+                    >{{ t.projects.labels.video }}</a
                   >
                 </div>
               </div>

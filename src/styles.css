@@ -3196,6 +3196,79 @@ body::before {
   }
 }
 
+.project-entry .project-visual.project-device-preview {
+  position: relative;
+  display: block;
+  aspect-ratio: 1.5;
+  background: #e4efeb;
+  isolation: isolate;
+}
+
+.project-browser-frame {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  width: 81%;
+  overflow: hidden;
+  border: 1px solid #cadbd4;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 14px 32px rgb(24 57 48 / 12%);
+}
+
+.project-browser-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 10px;
+  border-bottom: 1px solid #e2eae6;
+  color: #527069;
+  font-size: clamp(6px, 0.7vw, 9px);
+}
+
+.project-browser-dots {
+  display: flex;
+  gap: 3px;
+}
+
+.project-browser-dots i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #9bb6ac;
+}
+
+.project-phone-frame {
+  position: absolute;
+  top: 7%;
+  right: 5%;
+  width: 26%;
+  overflow: hidden;
+  border: 4px solid #193a35;
+  border-radius: clamp(12px, 2vw, 24px);
+  background: #fff;
+  box-shadow: 0 14px 28px rgb(24 57 48 / 22%);
+}
+
+.project-entry article .project-device-preview img,
+.project-entry article:hover .project-device-preview img {
+  width: 100%;
+  height: auto;
+  filter: none;
+  transform: none;
+}
+
+.project-device-caption {
+  position: absolute;
+  bottom: 4%;
+  left: 5%;
+  color: #126a60;
+  font-size: clamp(9px, 0.9vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
 /* Motion system: editorial entrance, depth on scroll, and restrained feedback. */
 @keyframes site-header-arrive {
   from {
