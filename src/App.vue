@@ -41,8 +41,8 @@ const copy = {
     about: {
       rail: "About",
       title: "Fullstack systems and intelligent products, built with intent.",
-      lead: "I am a dedicated Fullstack Developer, AI Engineer, and Prompt Engineer focused on building modern digital products and integrating advanced artificial intelligence. I specialize in aligning creative design, complex system logic, and generative AI technologies to solve real-world problems and deliver high-impact user experiences.",
-      body: "As a Technical Leader, I have a proven track record of guiding and managing cross-functional teams from project inception to deployment. I excel at aligning team dynamics, fostering effective collaboration, and making strategic technical decisions that empower large teams to execute with clarity and purpose.\n\nDriven by a commitment to continuous innovation, I bring strong strategic leadership and technical expertise to forward-thinking organizations. My goal is to architect scalable, well-structured solutions that drive business value and deliver meaningful, lasting impact.",
+      lead: "I am a Fullstack Developer, AI Engineer, and Prompt Engineer focused on building modern digital products and integrating artificial intelligence into practical solutions. I connect creative design, complex system logic, and generative AI to solve real-world problems and create meaningful user experiences.",
+      body: "My approach is driven by curiosity and hypothesis-based thinking. When developing a product or feature, I question assumptions, formulate hypotheses, and validate them through experimentation, feedback, and real world results. This helps me make informed decisions and build solutions with a clear purpose.\n\nI am attentive to the environment around me from user needs and team dynamics to changing business priorities. This awareness helps me identify challenges early, adapt my approach, and recognize opportunities for improvement.\n\nAs a Technical Leader, I guide cross-functional teams from project inception to deployment, keeping technical execution aligned with project goals. I bring structure to complex work, communicate priorities clearly, and support collaboration so that each team member understands how their contribution moves the project forward.\n\nI am committed to continuous learning and thoughtful innovation. My goal is to combine technical expertise, strategic thinking, and people-focused leadership to build scalable, well structured solutions that deliver lasting value for users and businesses.",
       focus: "Focus",
       focusValue:
         "Fullstack Development, Prompt Engineering, AI Engineering",
@@ -249,26 +249,6 @@ const copy = {
           demo: "",
           source: "",
         },
-        {
-          title: "Marimabar — Gaming Companion Finder",
-          domain: "Web Development",
-          slug: "mari-mabar",
-          year: "2026",
-          status: "In Development",
-          problem:
-            "Gamers struggle to find compatible teammates by rank, role, and schedule, while public game IDs invite spam and harassment.",
-          solution:
-            "A multi-role platform with structured game profiles, server-side discovery filters, transactional invitations, private 1:1 chat, and full privacy controls for MLBB, PUBG Mobile, Free Fire, and Valorant.",
-          stack: ["Vue 3", "TypeScript", "Vite", "Pinia", "Supabase", "PostgreSQL"],
-          contribution:
-            "Built the frontend and backend architecture with Vue Router, Pinia, Supabase Auth, PostgreSQL RLS, Realtime, Storage, Edge Functions, transactional invitations, and safety features for blocking, reports, and moderation.",
-          image: "/project/marimabar.png",
-          imageAlt: "Marimabar gaming companion finder platform",
-          featured: false,
-          demo: "",
-          source: "https://github.com/rakannaufal/marimabar",
-          sourceVisible: false,
-        },
       ],
     },
     contact: {
@@ -316,8 +296,8 @@ const copy = {
     about: {
       rail: "Tentang",
       title: "Sistem fullstack dan produk cerdas, dibangun dengan tujuan.",
-      lead: "Saya adalah Fullstack Developer, AI Engineer, dan Prompt Engineer yang berfokus membangun produk digital modern serta mengintegrasikan kecerdasan buatan tingkat lanjut. Saya menyelaraskan desain kreatif, logika sistem yang kompleks, dan teknologi AI generatif untuk menyelesaikan masalah nyata serta menghadirkan pengalaman pengguna berdampak tinggi.",
-      body: "Sebagai Technical Leader, saya berpengalaman memandu dan mengelola tim lintas fungsi sejak awal proyek hingga deployment. Saya menyelaraskan dinamika tim, membangun kolaborasi yang efektif, dan mengambil keputusan teknis strategis agar tim besar dapat bekerja dengan jelas dan terarah.\n\nDengan komitmen pada inovasi berkelanjutan, saya membawa kepemimpinan strategis dan keahlian teknis untuk organisasi yang berpikiran maju. Tujuan saya adalah merancang solusi yang scalable dan terstruktur untuk mendorong nilai bisnis serta dampak yang bermakna dan berkelanjutan.",
+      lead: "Saya adalah Fullstack Developer, AI Engineer, dan Prompt Engineer yang berfokus membangun produk digital modern serta mengintegrasikan kecerdasan buatan ke dalam solusi praktis. Saya menghubungkan desain kreatif, logika sistem yang kompleks, dan AI generatif untuk menyelesaikan masalah nyata serta menciptakan pengalaman pengguna yang bermakna.",
+      body: "Pendekatan saya didorong oleh rasa ingin tahu dan pemikiran berbasis hipotesis. Saat mengembangkan produk atau fitur, saya mempertanyakan asumsi, merumuskan hipotesis, dan memvalidasinya melalui eksperimen, umpan balik, serta hasil di dunia nyata. Hal ini membantu saya mengambil keputusan yang tepat dan membangun solusi dengan tujuan yang jelas.\n\nSaya peka terhadap lingkungan di sekitar saya, mulai dari kebutuhan pengguna dan dinamika tim hingga perubahan prioritas bisnis. Kepekaan ini membantu saya mengenali tantangan sejak dini, menyesuaikan pendekatan, dan menemukan peluang perbaikan.\n\nSebagai Technical Leader, saya memandu tim lintas fungsi dari awal proyek hingga deployment, menjaga pelaksanaan teknis tetap selaras dengan tujuan proyek. Saya memberi struktur pada pekerjaan yang kompleks, mengomunikasikan prioritas dengan jelas, dan mendukung kolaborasi agar setiap anggota tim memahami bagaimana kontribusinya mendorong kemajuan proyek.\n\nSaya berkomitmen pada pembelajaran berkelanjutan dan inovasi yang matang. Tujuan saya adalah menggabungkan keahlian teknis, pemikiran strategis, dan kepemimpinan yang berfokus pada manusia untuk membangun solusi yang scalable dan terstruktur dengan baik, serta memberikan nilai jangka panjang bagi pengguna dan bisnis.",
       focus: "Fokus",
       focusValue:
         "Fullstack Development, Prompt Engineering, AI Engineering",
@@ -524,26 +504,6 @@ const copy = {
           featured: true,
           demo: "",
           source: "",
-        },
-        {
-          title: "Marimabar — Platform Pencarian Teman Bermain",
-          domain: "Web Development",
-          slug: "mari-mabar",
-          year: "2026",
-          status: "Dalam Pengembangan",
-          problem:
-            "Pemain game sulit menemukan rekan mabar yang cocok berdasarkan rank, role, dan jadwal. Berbagi ID game secara publik juga berisiko spam dan pelecehan.",
-          solution:
-            "Platform multi-peran dengan profil per game yang terstruktur, filter pencarian berbasis server, sistem ajakan transaksional, chat 1:1 privat, dan kontrol privasi untuk MLBB, PUBG Mobile, Free Fire, serta Valorant.",
-          stack: ["Vue 3", "TypeScript", "Vite", "Pinia", "Supabase", "PostgreSQL"],
-          contribution:
-            "Membangun arsitektur frontend dan backend dengan Vue Router, Pinia, Supabase Auth, PostgreSQL RLS, Realtime, Storage, Edge Functions, sistem ajakan, blokir, laporan, dan moderasi.",
-          image: "/project/marimabar.png",
-          imageAlt: "Platform pencarian teman bermain Marimabar",
-          featured: false,
-          demo: "",
-          source: "https://github.com/rakannaufal/marimabar",
-          sourceVisible: false,
         },
       ],
     },

@@ -3251,12 +3251,16 @@ body::before {
   box-shadow: 0 14px 28px rgb(24 57 48 / 22%);
 }
 
-.project-entry article .project-device-preview img,
-.project-entry article:hover .project-device-preview img {
+.project-entry article .project-device-preview img {
   width: 100%;
   height: auto;
-  filter: none;
+  filter: grayscale(1) contrast(1.04);
   transform: none;
+}
+
+.project-entry article:hover .project-device-preview img {
+  filter: grayscale(0.2) contrast(1.04);
+  transform: scale(1.025);
 }
 
 .project-device-caption {
