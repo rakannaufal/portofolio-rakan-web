@@ -179,6 +179,7 @@ const copy = {
           featured: false,
           demo: "",
           source: "https://github.com/rakannaufal/Lunemira",
+          sourceVisible: false,
         },
         {
           title: "Danarapi — Personal Finance, Web & iOS",
@@ -191,9 +192,9 @@ const copy = {
           contribution:
             "Built the web and native iOS interfaces, shared data contracts, Supabase ledger integration, and receipt review and split-bill flows.",
           image: "/project/danarapi-web.jpg",
-          imageAlt: "Danarapi web dashboard showing balances, savings goals, and budgets",
+          imageAlt: "Danarapi web dashboard showing account balance, income, expenses, savings goals, and budgets",
           mobileImage: "/project/danarapi-ios.jpg",
-          mobileImageAlt: "Danarapi native iOS dashboard with income, expenses, and savings goals",
+          mobileImageAlt: "Danarapi native iOS dashboard with account balance, income, expenses, savings goals, and receipt review",
           featured: true,
           demo: "https://danarapi.vercel.app/",
           source: "https://github.com/rakannaufal/danarapi",
@@ -466,6 +467,7 @@ const copy = {
           featured: false,
           demo: "",
           source: "https://github.com/rakannaufal/Lunemira",
+          sourceVisible: false,
         },
         {
           title: "Danarapi — Keuangan Pribadi, Web & iOS",
@@ -478,9 +480,9 @@ const copy = {
           contribution:
             "Membangun antarmuka web dan iOS native, kontrak data bersama, integrasi ledger Supabase, serta alur tinjauan struk dan split bill.",
           image: "/project/danarapi-web.jpg",
-          imageAlt: "Dashboard web Danarapi dengan saldo, target tabungan, dan anggaran",
+          imageAlt: "Dashboard web Danarapi dengan saldo akun, pemasukan, pengeluaran, target tabungan, dan anggaran",
           mobileImage: "/project/danarapi-ios.jpg",
-          mobileImageAlt: "Dashboard iOS native Danarapi dengan pemasukan, pengeluaran, dan target tabungan",
+          mobileImageAlt: "Dashboard iOS native Danarapi dengan saldo akun, pemasukan, pengeluaran, target tabungan, dan tinjauan struk",
           featured: true,
           demo: "https://danarapi.vercel.app/",
           source: "https://github.com/rakannaufal/danarapi",
@@ -1084,7 +1086,7 @@ watch(language, (nextLanguage) => {
                     loading="lazy"
                     decoding="async"
                     width="1800"
-                    height="970"
+                    height="969"
                   />
                 </div>
                 <div class="project-phone-frame">
@@ -1093,8 +1095,8 @@ watch(language, (nextLanguage) => {
                     :alt="project.mobileImageAlt"
                     loading="lazy"
                     decoding="async"
-                    width="581"
-                    height="1200"
+                    width="780"
+                    height="1688"
                   />
                 </div>
                 <span class="project-device-caption" aria-hidden="true">Web + iOS</span>
