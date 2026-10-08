@@ -3196,6 +3196,39 @@ body::before {
   }
 }
 
+.project-entry .project-visual.project-screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(0.4rem, 1vw, 0.8rem);
+  padding: clamp(0.65rem, 1.5vw, 1.2rem);
+  background: var(--surface-muted);
+}
+
+.project-screenshot-grid figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.project-entry article .project-screenshot-grid img,
+.project-entry article:hover .project-screenshot-grid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 780 / 1688;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  object-fit: contain;
+  filter: none;
+  transform: none;
+}
+
+.project-screenshot-grid figcaption {
+  margin-top: 0.55rem;
+  color: var(--muted-strong);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
 .project-entry .project-visual.project-device-preview {
   position: relative;
   display: block;

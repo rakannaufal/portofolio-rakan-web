@@ -150,6 +150,37 @@ const copy = {
       },
       items: [
         {
+          title: "Lunemira - Cycle & Mood Companion",
+          domain: "iOS Development",
+          problem:
+            "Cycle records, daily feelings, and self-care information are often scattered across separate tools.",
+          solution:
+            "A native iPhone app with cycle tracking, mood check-ins, a personal journal, educational articles, and offline storage.",
+          stack: ["SwiftUI", "SwiftData", "Supabase", "WidgetKit"],
+          contribution:
+            "Built the native iOS app, cycle calendar, daily check-ins, journal, learning library, widgets, and data sync.",
+          screenshots: [
+            {
+              src: "/project/lunemira-today.jpg",
+              alt: "Lunemira daily dashboard with a mood check-in and support summary",
+              caption: "Today",
+            },
+            {
+              src: "/project/lunemira-cycle.jpg",
+              alt: "Lunemira cycle calendar with menstrual records and estimated cycle dates",
+              caption: "Cycle",
+            },
+            {
+              src: "/project/lunemira-learn.jpg",
+              alt: "Lunemira learning library with articles about menstruation and self-care",
+              caption: "Learn",
+            },
+          ],
+          featured: false,
+          demo: "",
+          source: "https://github.com/rakannaufal/Lunemira",
+        },
+        {
           title: "Danarapi — Personal Finance, Web & iOS",
           domain: "Fullstack & iOS Development",
           problem:
@@ -405,6 +436,37 @@ const copy = {
         video: "Video Demo iOS",
       },
       items: [
+        {
+          title: "Lunemira - Pendamping Siklus & Mood",
+          domain: "iOS Development",
+          problem:
+            "Catatan siklus, perasaan sehari-hari, dan informasi perawatan diri sering tersebar di berbagai tempat.",
+          solution:
+            "Aplikasi iPhone native untuk pencatatan siklus, check-in mood, jurnal pribadi, bacaan edukasi, dan penyimpanan offline.",
+          stack: ["SwiftUI", "SwiftData", "Supabase", "WidgetKit"],
+          contribution:
+            "Membangun aplikasi iOS native, kalender siklus, check-in harian, jurnal, pustaka edukasi, widget, dan sinkronisasi data.",
+          screenshots: [
+            {
+              src: "/project/lunemira-today.jpg",
+              alt: "Beranda harian Lunemira dengan check-in mood dan ringkasan dukungan",
+              caption: "Hari ini",
+            },
+            {
+              src: "/project/lunemira-cycle.jpg",
+              alt: "Kalender siklus Lunemira dengan catatan menstruasi dan perkiraan tanggal siklus",
+              caption: "Siklus",
+            },
+            {
+              src: "/project/lunemira-learn.jpg",
+              alt: "Pustaka Belajar Lunemira dengan bacaan tentang menstruasi dan perawatan diri",
+              caption: "Belajar",
+            },
+          ],
+          featured: false,
+          demo: "",
+          source: "https://github.com/rakannaufal/Lunemira",
+        },
         {
           title: "Danarapi — Keuangan Pribadi, Web & iOS",
           domain: "Fullstack & iOS Development",
@@ -991,7 +1053,23 @@ watch(language, (nextLanguage) => {
           >
             <article>
               <div
-                v-if="'mobileImage' in project"
+                v-if="'screenshots' in project"
+                class="project-visual project-screenshot-grid"
+              >
+                <figure v-for="screenshot in project.screenshots" :key="screenshot.src">
+                  <img
+                    :src="screenshot.src"
+                    :alt="screenshot.alt"
+                    loading="lazy"
+                    decoding="async"
+                    width="780"
+                    height="1688"
+                  />
+                  <figcaption>{{ screenshot.caption }}</figcaption>
+                </figure>
+              </div>
+              <div
+                v-else-if="'mobileImage' in project"
                 class="project-visual project-device-preview"
               >
                 <div class="project-browser-frame">
