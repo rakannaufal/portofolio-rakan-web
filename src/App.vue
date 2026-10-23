@@ -599,7 +599,7 @@ const contact = {
   email: "naufalrakan432@gmail.com",
   github: "https://github.com/rakannaufal",
   linkedin: "https://www.linkedin.com/in/m-rakan-naufal-b98463286/",
-  cv: "[URL_CV]",
+  cv: "/CV_M_Rakan_Naufal.pdf",
 };
 
 const experiences: Array<never> = [];
@@ -923,8 +923,7 @@ watch(language, (nextLanguage) => {
             v-if="hasCv"
             class="text-link"
             :href="contact.cv"
-            target="_blank"
-            rel="noreferrer"
+            download="CV_M_Rakan_Naufal.pdf"
             >{{ t.about.cv }}</a
           >
           <span v-else class="text-link is-pending">{{
