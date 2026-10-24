@@ -150,6 +150,22 @@ const copy = {
       },
       items: [
         {
+          title: "Zaustory - Sports & Event Photography",
+          domain: "Web Development",
+          problem:
+            "A sports and event photographer needed a dedicated website to showcase photo albums and help visitors get in touch.",
+          solution:
+            "A photography portfolio with categorized albums, a photo lightbox, experience highlights, and WhatsApp contact links.",
+          stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+          contribution:
+            "Built the responsive portfolio, album browsing, photo viewer, and contact flow.",
+          image: "/project/zaustory.jpg",
+          imageAlt: "Zaustory photography website with sports photography and a photographer portrait",
+          featured: false,
+          demo: "https://www.zaustory.my.id/",
+          source: "https://github.com/rakannaufal/zaustory",
+        },
+        {
           title: "Lunemira - Cycle & Mood Companion",
           domain: "iOS Development",
           problem:
@@ -262,7 +278,7 @@ const copy = {
           image: "/project/khay.jpg",
           imageAlt: "Khay Brownies product website",
           featured: false,
-          demo: "https://khay-brownies.vercel.app",
+          demo: "https://www.khaybrownies.my.id/",
           source: "https://github.com/rakannaufal/khay_brownies",
         },
         {
@@ -438,6 +454,22 @@ const copy = {
       },
       items: [
         {
+          title: "Zaustory - Fotografi Olahraga & Event",
+          domain: "Web Development",
+          problem:
+            "Fotografer olahraga dan event membutuhkan situs khusus untuk menampilkan album foto dan memudahkan pengunjung menghubunginya.",
+          solution:
+            "Portofolio fotografi dengan kategori album, lightbox foto, sorotan pengalaman, dan tautan kontak WhatsApp.",
+          stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+          contribution:
+            "Membangun portofolio responsif, penelusuran album, penampil foto, dan alur kontak.",
+          image: "/project/zaustory.jpg",
+          imageAlt: "Situs fotografi Zaustory dengan foto olahraga dan potret fotografer",
+          featured: false,
+          demo: "https://www.zaustory.my.id/",
+          source: "https://github.com/rakannaufal/zaustory",
+        },
+        {
           title: "Lunemira - Pendamping Siklus & Mood",
           domain: "iOS Development",
           problem:
@@ -550,7 +582,7 @@ const copy = {
           image: "/project/khay.jpg",
           imageAlt: "Situs produk Khay Brownies",
           featured: false,
-          demo: "https://khay-brownies.vercel.app",
+          demo: "https://www.khaybrownies.my.id/",
           source: "https://github.com/rakannaufal/khay_brownies",
         },
         {
@@ -589,6 +621,15 @@ const { prefersReducedMotion } = useReducedMotion();
 const theme = ref<Theme>("light");
 const language = ref<Language>("en");
 const t = computed(() => copy[language.value]);
+const sortedProjects = computed(() => {
+  const priority = (project: { demo: string }) => {
+    if (project.demo === "https://www.khaybrownies.my.id/") return 0;
+    if (project.demo === "https://www.zaustory.my.id/") return 1;
+    return project.demo ? 2 : 3;
+  };
+
+  return [...t.value.projects.items].sort((a, b) => priority(a) - priority(b));
+});
 const isMobileMenuOpen = ref(false);
 
 const profileImageHero = "/profile.png";
@@ -1045,7 +1086,7 @@ watch(language, (nextLanguage) => {
 
         <div class="projects-grid">
           <Reveal
-            v-for="(project, index) in t.projects.items"
+            v-for="(project, index) in sortedProjects"
             :key="project.title"
             class="project-entry"
             :class="{ 'project-featured': project.featured }"
