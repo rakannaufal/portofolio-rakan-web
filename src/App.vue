@@ -150,6 +150,21 @@ const copy = {
       },
       items: [
         {
+          title: "Bantuin - Website Specification Platform",
+          domain: "Web Development",
+          problem:
+            "Business owners often struggle to turn a brief into a clear, structured website plan ready for development.",
+          solution:
+            "A web platform that builds website specifications from briefs using templates or AI, with document plans, checklists, revisions, and ZIP exports.",
+          stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma"],
+          contribution: "Developed the flow from brief creation to document export, including the workspace, editor, template catalog, authentication, and generation processing.",
+          image: "/project/bantuin.png",
+          imageAlt: "Bantuin homepage for turning website ideas into development plans",
+          featured: false,
+          demo: "https://bantuin.ai.id/",
+          source: "",
+        },
+        {
           title: "Zaustory - Sports & Event Photography",
           domain: "Web Development",
           problem:
@@ -453,6 +468,21 @@ const copy = {
         video: "Video Demo iOS",
       },
       items: [
+        {
+          title: "Bantuin - Platform Penyusun Spesifikasi Website",
+          domain: "Web Development",
+          problem:
+            "Pemilik ide bisnis sering kesulitan mengubah brief menjadi rencana website yang jelas, terstruktur, dan siap dikerjakan.",
+          solution:
+            "Platform web yang membantu menyusun spesifikasi website dari brief melalui template atau AI, lengkap dengan rencana dokumen, checklist, revisi, dan ekspor ZIP.",
+          stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma"],
+          contribution: "Mengembangkan alur dari penyusunan brief hingga ekspor dokumen, termasuk workspace, editor, katalog template, autentikasi, dan pemrosesan generasi.",
+          image: "/project/bantuin.png",
+          imageAlt: "Halaman utama Bantuin untuk mengubah ide website menjadi rencana pengembangan",
+          featured: false,
+          demo: "https://bantuin.ai.id/",
+          source: "",
+        },
         {
           title: "Zaustory - Fotografi Olahraga & Event",
           domain: "Web Development",
