@@ -667,7 +667,7 @@ const profileImageAbout = "/profile.png";
 
 const contact = {
   location: "Pekanbaru, Indonesia",
-  email: "naufalrakan432@gmail.com",
+  email: "rakandevs@gmail.com",
   github: "https://github.com/rakannaufal",
   linkedin: "https://www.linkedin.com/in/m-rakan-naufal-b98463286/",
   cv: "/CV_M_Rakan_Naufal.pdf",
